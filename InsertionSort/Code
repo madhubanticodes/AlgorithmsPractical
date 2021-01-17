@@ -1,0 +1,67 @@
+#include<iostream>
+using namespace std;
+class sort
+{
+	private:
+		int A[25],n;
+		public:
+void input()
+{
+    int i;
+	cout<<"Enter the size of the array:";
+	cin>>n;
+	cout<<"Enter the elements of the array:";
+	for(i=0;i<n;i++)
+   {
+    cin>>A[i];
+   }
+   insertion();
+}
+
+void print()
+{
+	cout<<"The elements of the array are: ";
+	for(int i=0;i<n;i++)
+	{
+		cout<<A[i]<<" ";
+
+	}
+}
+void insertion()
+{   int total;
+	int c;
+	for(int i=1;i<n;i++)
+	{
+		c=0;
+		int j=i-1;
+		int k=A[i];
+		while(j>=0&&k<A[j])
+		{
+			A[j+1]=A[j];
+			j=j-1;
+			c=c+1;
+		}
+		A[j+1]=k;
+		cout<<"\nAfter pass: "<<i<<"\n";
+		print();
+		if(j<0)
+		{
+			cout<<"\nNo. of comparisons = "<<c<<"\n";
+		}
+		else
+            {
+			cout<<"\nNo. of comparisons = "<<++c<<"\n";
+
+		}
+		total=total+c;
+	}
+	cout<<"TOTAL NO. OF COMPARISONS = "<<total<<"\n";
+}
+};
+int main()
+{
+	sort ob1;
+	ob1.input();
+	ob1.print();
+	return 0;
+}
